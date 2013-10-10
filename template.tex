@@ -1,0 +1,215 @@
+\documentclass[11pt]{book}
+\usepackage[b5paper]{geometry}
+
+% 겉표지, 속표지 등을 위한 종이 크기 재설정
+% taken from
+% http://faq.ktug.org/faq/LayOut/%c6%c7%c7%fc#s-4
+%\special{pdf: pagesize width 190truemm height 260truemm}
+
+%\usepackage[titles]{tocloft}
+%\usepackage{titlesec}
+\usepackage[doublespacing]{setspace} % double spacing
+
+\usepackage{graphicx}
+\graphicspath{{./figures/}} % figure seach path
+
+\usepackage[utf]{kotex} % 한글 사용
+
+% part numbering as arabic (or alph (a, b, ...), Alph (A, B, ...), roman (i, ii, ...), Roman (I, II, ...), fnsymbol (*, ....))
+% taken from
+% http://tex.stackexchange.com/questions/3177/how-to-change-the-numbering-of-part-chapter-section-to-alphabetical-r
+%\renewcommand\thepart{\arabic{part}}
+
+% change table of contents for part, i.e. Part I
+% taken from
+% http://tex.stackexchange.com/questions/38625/part-and-tocloft
+\makeatletter
+\def\@part[#1]#2{%
+    \ifnum \c@secnumdepth >-2\relax
+      \refstepcounter{part}%
+      \addcontentsline{toc}{part}{\partname~\thepart\hspace{1em}#1}%
+    \else
+      \addcontentsline{toc}{part}{#1}%
+    \fi
+    \markboth{}{}%
+    {\centering
+     \interlinepenalty \@M
+     \normalfont
+     \ifnum \c@secnumdepth >-2\relax
+       \huge\bfseries \partname\nobreakspace\thepart
+       \par
+       \vskip 20\p@
+     \fi
+     \Huge \bfseries #2\par}%
+    \@endpart}
+\makeatother
+
+% Comment the following to have chapters numbered without interruption (numbering through parts)
+% taken from
+% http://tex.stackexchange.com/questions/35782/how-to-split-a-latex-document-using-parts-and-chapters
+%\makeatletter\@addtoreset{chapter}{part}\makeatother
+
+%\newlength\mylenchp
+%\newlength\mylenapp
+%
+%\renewcommand\cftchappresnum{\chaptername~}
+%\renewcommand\cftchapaftersnum{.}
+%
+%\settowidth\mylenchp{\cftchapfont\cftchappresnum\cftchapaftersnum}
+%\settowidth\mylenapp{\cftchapfont\appendixname~\cftchapaftersnum}
+%\addtolength\mylenchp{\cftchapnumwidth}
+%\addtolength\mylenapp{\cftchapnumwidth}
+%
+%\setlength\cftchapnumwidth{\mylenchp}
+
+\begin{document}
+
+\tableofcontents
+
+%\part{First Part}
+
+\chapter{First Chapter}
+
+\section{First Section}
+
+\subsection{First Subsection}
+
+\subsubsection{First Subsubsection}
+
+Blah blah
+
+\section{Second Section}
+
+\subsection{Second Subsection}
+
+\subsubsection{Second Subsubsection}
+
+Blah blah
+
+\section{Third Section}
+
+\subsection{Third Subsection}
+
+\subsubsection{Third Subsubsection}
+
+Blah blah
+
+\section{Fourth Section}
+
+\subsection{Fourth Subsection}
+
+\subsubsection{Fourth Subsubsection}
+
+Blah blah
+
+\chapter{Second Chapter}
+
+\section{First Section}
+
+\subsection{First Subsection}
+
+\subsubsection{First Subsubsection}
+
+Blah blah
+
+\section{Second Section}
+
+\subsection{Second Subsection}
+
+\subsubsection{Second Subsubsection}
+
+Blah blah
+
+\section{Third Section}
+
+\subsection{Third Subsection}
+
+\subsubsection{Third Subsubsection}
+
+Blah blah
+
+\section{Fourth Section}
+
+\subsection{Fourth Subsection}
+
+\subsubsection{Fourth Subsubsection}
+
+\chapter{Third Chapter}
+
+\section{First Section}
+
+\subsection{First Subsection}
+
+\subsubsection{First Subsubsection}
+
+Blah blah
+
+\section{Second Section}
+
+\subsection{Second Subsection}
+
+\subsubsection{Second Subsubsection}
+
+Blah blah
+
+\section{Third Section}
+
+\subsection{Third Subsection}
+
+\subsubsection{Third Subsubsection}
+
+Blah blah
+
+\section{Fourth Section}
+
+\subsection{Fourth Subsection}
+
+\subsubsection{Fourth Subsubsection}
+
+\chapter{Fourth Chapter}
+
+\section{First Section}
+
+\subsection{First Subsection}
+
+\subsubsection{First Subsubsection}
+
+Blah blah
+
+\section{Second Section}
+
+\subsection{Second Subsection}
+
+\subsubsection{Second Subsubsection}
+
+Blah blah
+
+\section{Third Section}
+
+\subsection{Third Subsection}
+
+\subsubsection{Third Subsubsection}
+
+Blah blah
+
+\section{Fourth Section}
+
+\subsection{Fourth Subsection}
+
+\subsubsection{Fourth Subsubsection}
+
+Reference example... \cite{Tsa2006}.
+
+\addcontentsline{toc}{part}{References}
+\bibliographystyle{IEEEtran}
+\bibliography{bibliography}
+
+\newpage
+
+% footnote numbering to symbol
+\renewcommand\thefootnote{\fnsymbol{footnote}}
+
+% 한글 초록
+이렇게... \footnote[1]{This is blah blah}
+
+\end{document}
