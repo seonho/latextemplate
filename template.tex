@@ -1,6 +1,8 @@
 \documentclass[11pt]{book}
 \usepackage[b5paper]{geometry}
 
+\usepackage[titletoc]{appendix}
+
 % 겉표지, 속표지 등을 위한 종이 크기 재설정
 % taken from
 % http://faq.ktug.org/faq/LayOut/%c6%c7%c7%fc#s-4
@@ -62,7 +64,11 @@
 %
 %\setlength\cftchapnumwidth{\mylenchp}
 
+\let\cleardoublepage\clearpage % blank page 제거
+
 \begin{document}
+
+\pagestyle{plain} % page 위치, header 제거
 
 \tableofcontents
 
@@ -204,12 +210,20 @@ Reference example... \cite{Tsa2006}.
 \bibliographystyle{IEEEtran}
 \bibliography{bibliography}
 
+\begin{appendices}
+%\appendix
+\chapter{First Appendix Chapter}
+Blah blah
+\end{appendices}
+
 \newpage
+
+\pagestyle{plain}
 
 % footnote numbering to symbol
 \renewcommand\thefootnote{\fnsymbol{footnote}}
 
 % 한글 초록
-이렇게... \footnote[1]{This is blah blah}
+한글 초록은 여기에 이렇게... \footnote[1]{This is blah blah}
 
 \end{document}
