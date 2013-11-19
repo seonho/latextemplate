@@ -66,15 +66,25 @@
 
 \let\cleardoublepage\clearpage % blank page 제거
 
+\newcommand{\hiddensection}[1]{
+    \stepcounter{section}
+    \section*{\Alph{chapter}.\arabic{section}\hspace{1em}{#1}}
+}
+
+%\newcommand{\hiddensubsection}[1]{
+%    \stepcounter{section}
+%    \subsection*{\arabic{chapter}.\arabic{section}.\arabic{subsection}\hspace{1em}{#1}}
+%}
+
 \begin{document}
 
 \pagestyle{plain} % page 위치, header 제거
 
 \tableofcontents
 
-%\part{First Part}
-
 \chapter{First Chapter}
+
+\setcounter{page}{1}
 
 \section{First Section}
 
@@ -206,15 +216,34 @@ Blah blah
 
 Reference example... \cite{Tsa2006}.
 
+\begin{appendices}
+
+\chapter{First Appendix Chapter}
+
+\hiddensection{First Appendix Section}
+Blah blah
+
+\subsection{First Subsection}
+Blah blah
+
+\hiddensection{Second Appendix Section}
+Blah blah
+
+\chapter{Second Appendix Chapter}
+
+\hiddensection{First Appendix Section}
+Blah blah
+
+\hiddensection{Second Appendix Section}
+Blah blah
+
+\end{appendices}
+
 \addcontentsline{toc}{part}{References}
 \bibliographystyle{IEEEtran}
 \bibliography{bibliography}
 
-\begin{appendices}
-%\appendix
-\chapter{First Appendix Chapter}
-Blah blah
-\end{appendices}
+\addcontentsline{toc}{part}{Abstract}
 
 \newpage
 
