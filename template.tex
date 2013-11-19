@@ -71,16 +71,33 @@
     \section*{\Alph{chapter}.\arabic{section}\hspace{1em}{#1}}
 }
 
-%\newcommand{\hiddensubsection}[1]{
-%    \stepcounter{section}
-%    \subsection*{\arabic{chapter}.\arabic{section}.\arabic{subsection}\hspace{1em}{#1}}
-%}
+\newcommand{\hiddensubsection}[1]{
+    \stepcounter{subsection}
+    \subsection*{\Alph{chapter}.\arabic{section}.\arabic{subsection}\hspace{1em}{#1}}
+}
+
+\usepackage{array}	%
+\usepackage{multirow} % multicolumn or multirow
+%\usepackage{hhline}
+
+\usepackage{xcolor,colortbl} % for coloring 
+\definecolor{lightgray}{gray}{0.9}
+
+% Set default font for all the tables in this document
+\let\oldtabular\tabular
+\renewcommand{\tabular}{\footnotesize\oldtabular}
+
+\usepackage{blindtext} % For long caption example
 
 \begin{document}
 
 \pagestyle{plain} % page 위치, header 제거
 
 \tableofcontents
+\listoffigures
+\listoftables
+
+\clearpage
 
 \chapter{First Chapter}
 
@@ -93,6 +110,42 @@
 \subsubsection{First Subsubsection}
 
 Blah blah
+
+In the following, Eqn.~\ref{eqn:cos2theta} illustrates double-angle formulae of $\cos$. % inline formula
+
+% See http://en.wikibooks.org/wiki/LaTeX/Mathematics
+% See http://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics
+\begin{equation}
+\label{eqn:cos2theta}
+\cos (2\theta) = \cos^2 \theta - \sin^2 \theta
+\end{equation}
+
+\newpage
+
+In the following, Fig.~\ref{fig:dum1} draws an example of figure.
+% See http://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions
+\begin{figure}[ht]
+\begin{center}
+\rule{0.5\linewidth}{0.35\linewidth}
+\caption[Long caption figure]{\blindtext}
+\label{fig:dum1}
+\end{center}
+\end{figure}
+
+In the following, Table~\ref{tbl:table1} denotes an example of table.
+% See http://en.wikibooks.org/wiki/LaTeX/Tables for details
+\begin{table}[ht]
+\caption[Table example]{This is an example of table}
+\label{tbl:table1}
+\centering
+\begin{tabular}{c c c}
+\hline
+A & B & C \tabularnewline \hline
+\rowcolor{lightgray}
+D & E & F \tabularnewline
+H & H & I \tabularnewline \hline
+\end{tabular}
+\end{table}
 
 \section{Second Section}
 
@@ -223,7 +276,10 @@ Reference example... \cite{Tsa2006}.
 \hiddensection{First Appendix Section}
 Blah blah
 
-\subsection{First Subsection}
+\hiddensubsection{First Subsection}
+Blah blah
+
+\subsubsection{First Subsubsection}
 Blah blah
 
 \hiddensection{Second Appendix Section}
