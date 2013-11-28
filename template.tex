@@ -78,7 +78,7 @@
 
 \usepackage{array}	%
 \usepackage{multirow} % multicolumn or multirow
-%\usepackage{hhline}
+\usepackage{hhline}    % 
 
 \usepackage{xcolor,colortbl} % for coloring 
 \definecolor{lightgray}{gray}{0.9}
@@ -86,6 +86,21 @@
 % Set default font for all the tables in this document
 \let\oldtabular\tabular
 \renewcommand{\tabular}{\footnotesize\oldtabular}
+
+% Algorithm 관련 패키지 및 명령어 재정의
+\usepackage{algorithm}  % algorithm package
+\usepackage{algorithmic}
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}   % Algorithm input
+\renewcommand{\algorithmicensure}{\textbf{Output:}} % Algorithm output
+\renewcommand{\algorithmicforall}{\textbf{foreach}}    % Rename FORALL to foreach
+\renewcommand{\algorithmicif}{\textbf{if}}                     % Rename IF to if
+\renewcommand{\algorithmicendif}{\textbf{end}}          % Rename ENDIF to end
+\renewcommand{\algorithmicendfor}{\textbf{end}}        % Rename ENDFOR to end
+
+%\newcommand{\algname}[1]{{\sc #1}}                         % Set algorithm name
+
+\usepackage{bm} % \bm command for bold italic math font
 
 \usepackage{blindtext} % For long caption example
 
@@ -142,18 +157,42 @@ In the following, Table~\ref{tbl:table1} denotes an example of table.
 \hline
 A & B & C \tabularnewline \hline
 \rowcolor{lightgray}
-D & E & F \tabularnewline
+D & E & F \tabularnewline \hline
 H & H & I \tabularnewline \hline
 \end{tabular}
 \end{table}
+
+Alg.~\ref{alg:example} illustrates an example of algorithm.
+
+% Algorithm - http://en.wikibooks.org/wiki/LaTeX/Algorithms
+\begin{algorithm}[ht]
+\caption{ALGORITHM EXAMPLE}
+\label{alg:example}
+\begin{algorithmic}[1]
+\REQUIRE some inputs.
+\ENSURE some outputs.
+
+\STATE <text>
+ \IF{<condition>} \STATE{<text>} \ENDIF
+ \FOR{<condition>} \STATE{<text>} \ENDFOR
+ \FOR{<condition> \TO <condition> } \STATE{<text>} \ENDFOR
+ \FORALL{<condition>} \STATE{<text>} \ENDFOR
+ \WHILE{<condition>} \STATE{<text>} \ENDWHILE
+ \REPEAT \STATE{<text>} \UNTIL{<condition>}
+ \LOOP \STATE{<text>} \ENDLOOP
+ \RETURN <text>
+ \PRINT <text>
+ \COMMENT{<text>}
+ \AND, \OR, \XOR, \NOT, \TO, \TRUE, \FALSE
+
+\end{algorithmic}
+\end{algorithm}
 
 \section{Second Section}
 
 \subsection{Second Subsection}
 
 \subsubsection{Second Subsubsection}
-
-Blah blah
 
 \section{Third Section}
 
