@@ -104,6 +104,8 @@
 
 \usepackage{blindtext} % For long caption example
 
+\usepackage{subfigure}
+
 \begin{document}
 
 \pagestyle{plain} % page 위치, header 제거
@@ -147,6 +149,18 @@ In the following, Fig.~\ref{fig:dum1} draws an example of figure.
 \end{center}
 \end{figure}
 
+In the following, Fig.~\ref{fig:subfig} draws an example of subfigure.
+\begin{figure}[ht]
+\subfigure[This is a caption of the first subfig.]{
+\includegraphics[width=2in]{subfig.eps}
+}
+\subfigure[This is a caption of the second subfig.]{
+\includegraphics[width=2in]{subfig.eps}
+}
+\caption{This is a caption of the figure.}
+\label{fig:subfig}
+\end{figure}
+
 In the following, Table~\ref{tbl:table1} denotes an example of table.
 % See http://en.wikibooks.org/wiki/LaTeX/Tables for details
 \begin{table}[ht]
@@ -159,6 +173,48 @@ A & B & C \tabularnewline \hline
 \rowcolor{lightgray}
 D & E & F \tabularnewline \hline
 H & H & I \tabularnewline \hline
+\end{tabular}
+\end{table}
+
+\begin{table}
+\label{tbl:drandet}
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+\multirow{2}{*}{Samp. Lev.} & \multirow{2}{*}{EHMI Size} & \multicolumn{3}{c|}{Detection Rate (\%)} & \multicolumn{3}{c|}{Execution Time (ms)} \tabularnewline \hhline{~~------}
+& & Rec.  & Prec. & F1 & Gen. EHMI & Com. HOG & Total\\
+\hline
+Level     8 & $  2687 \times 32$ & 0.22 & 100.00 & 0.44 & 5 & 1 & 10 \tabularnewline \hline
+Level   18 & $  5882 \times 32$ & 5.41 & 93.59 & 10.23 & 7 & 1 & 12 \tabularnewline \hline
+Level   28 & $  9426 \times 32$ & 51.45 & 93.15 & 66.28 & 8 & 2 & 14 \tabularnewline \hline
+Level   38 & $13583 \times 32$ & 66.42 & 88.02 & 75.71 & 12 & 3 & 18 \tabularnewline \hline
+Level   48 & $16790 \times 32$ & 75.24 & 87.88 & 81.07 & 13 & 4 & 21 \tabularnewline \hline
+Level   58 & $20784 \times 32$ & 79.76 & 88.12 & 83.74 & 14 & 4 & 23 \tabularnewline \hline
+\rowcolor{lightgray}
+Level   68 & $24049 \times 32$ & 84.14 & 87.78 & 85.92 & 15 & 4 & 25 \tabularnewline \hline
+Level   78 & $27363 \times 32$ & 84.58 & 87.77 & 86.15 & 18 & 5 & 29 \tabularnewline \hline
+Level   88 & $29536 \times 32$ & 85.47 & 87.68 & 86.56 & 21 & 5 & 32 \tabularnewline \hline
+Level   98 & $33031 \times 32$ & 86.66 & 88.03 & 87.34 & 24 & 5 & 36 \tabularnewline \hline
+Level 108 & $35447 \times 32$ & 87.47 & 88.92 & 88.19 & 25 & 6 & 39 \tabularnewline \hline
+\end{tabular}
+\end{table}
+
+\begin{table}
+\label{tbl:tbl2}
+\centering
+\begin{tabular}{c|ccc}
+\hline
+& Recall  (\%) & Precision (\%) & F1-Measure (\%) \tabularnewline \hline
+Part 0 & 4.0 & 66.7 & 7.5 \\
+Part 12 & 46.0 & 92.0 & 61.3 \\
+\rowcolor{lightgray}
+Part 24 & 78.0 & 97.5 & 86.7 \\
+Part 36 & 94.0 & 78.3 & 85.5 \\
+Part 48 & 92.0 & 61.3 & 73.6 \\
+Part 60 & 90.0 & 72.6 & 80.4 \\
+\rowcolor{lightgray}
+Part 72 & 88.0 & 93.6 & 90.7 \\
+Part 84 & 2.0 & 50.0 & 3.8 \tabularnewline \hline
 \end{tabular}
 \end{table}
 
